@@ -90,7 +90,7 @@ class SouthSystApplicationTests {
 	void votar(Long idSessao) {
 		String cpfAssociado = "04729646150";
 		Votacao novaVotacao = new Votacao();
-		Votacao voto = this.votacaoService.buscarPorAssociado(cpfAssociado);
+		Votacao voto = this.votacaoService.buscarVotacaoPorCPF(cpfAssociado);
 		
 		if(voto == null) {
 			novaVotacao.setCpfAssociado(cpfAssociado);

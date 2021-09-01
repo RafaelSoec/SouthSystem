@@ -15,6 +15,7 @@
 /Users/rafael-souza/Documents/Desafios-Tecnicos/SouthSystem/src/main/java/com/projeto/model/entities/Associado.java
 /Users/rafael-souza/Documents/Desafios-Tecnicos/SouthSystem/src/main/java/com/projeto/model/entities/Pauta.java
 /Users/rafael-souza/Documents/Desafios-Tecnicos/SouthSystem/src/main/java/com/projeto/exception/ResponseExceptionHandler.java
+/Users/rafael-souza/Documents/Desafios-Tecnicos/SouthSystem/src/main/java/com/projeto/model/entities/AbstractEntity.java
 /Users/rafael-souza/Documents/Desafios-Tecnicos/SouthSystem/src/main/java/com/projeto/model/dtos/ResultadoVotacaoDTO.java
 /Users/rafael-souza/Documents/Desafios-Tecnicos/SouthSystem/src/main/java/com/projeto/service/PautaService.java
 /Users/rafael-souza/Documents/Desafios-Tecnicos/SouthSystem/src/main/java/com/projeto/service/MensageriaService.java

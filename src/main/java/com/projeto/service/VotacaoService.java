@@ -22,7 +22,7 @@ public class VotacaoService extends AbstractService<Votacao> {
 	@Autowired
 	private AssociadoService associadoService;
 
-	public Votacao buscarAssociadoPorCPF(String cpf) {
+	public Votacao buscarVotacaoPorCPF(String cpf) {
 		return this.repository.buscarVotacaoPorCPF(cpf);
 	}
 

@@ -10,7 +10,7 @@ import com.projeto.model.entities.Votacao;
 public interface VotacaoRepository extends JpaRepository<Votacao, Long> {
 
     @Query("SELECT v FROM Votacao v WHERE v.cpfAssociado = ?1")
-    Votacao buscarPorAssociado(String cpfAssociado);
+    Votacao buscarVotacaoPorCPF(String cpfAssociado);
 	
 
 }

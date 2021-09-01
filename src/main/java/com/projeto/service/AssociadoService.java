@@ -67,6 +67,11 @@ public class AssociadoService extends AbstractService<Associado>{
 		
 		return false;
 	}
+	
+
+	public Associado recuperarAssociadoPorCpf(String cpf) {
+		return this.repository.recuperarAssociadoPorCpf(cpf);
+	}
 }
 
 

@@ -35,15 +35,16 @@ class SouthSystApplicationTests {
 
 	@Test
 	void contextLoads() {
-		this.criarAssociado();
-		this.criarPauta();
-		this.criarSessao();
-		this.votar();
+		//this.criarAssociado("04729646150");
+		//this.criarPauta();
+		
+		//Sessao sessao = this.criarSessao();
+		//this.votar(sessao.getId());
 	}
 	
-	Associado criarAssociado() {
+	Associado criarAssociado(String cpf) {
 		Associado associado = new Associado();
-		associado.setCpf("04799646150");
+		associado.setCpf(cpf);
 		
 		
 		associado.setDataNascimento(new Date("01/01/1992"));
@@ -86,8 +87,7 @@ class SouthSystApplicationTests {
 		return sessao;
 	}
 
-	void votar() {
-		Long idSessao = 1L;
+	void votar(Long idSessao) {
 		String cpfAssociado = "04729646150";
 		Votacao novaVotacao = new Votacao();
 		Votacao voto = this.votacaoService.buscarPorAssociado(cpfAssociado);

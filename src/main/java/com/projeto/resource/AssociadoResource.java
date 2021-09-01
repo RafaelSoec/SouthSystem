@@ -56,12 +56,6 @@ public class AssociadoResource {
 
 	@PostMapping("votar")
 	public void votar(@RequestBody Votacao voto) {
-		boolean podeVotar = this.service.verificarSeAssociadoPodeVotar(voto.getCpfAssociado());
-		
-		if(podeVotar) {
-			this.votacaoService.votar(voto);
-		}else {
-			throw new RuntimeException("Associado não habilitado a votar.");
-		}
+		this.votacaoService.votar(voto);
 	}
 }

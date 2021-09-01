@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.print.DocFlavor.STRING;
 
 import com.projeto.model.enums.VotoEnum;
 

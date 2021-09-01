@@ -38,3 +38,5 @@ public class AssociadoService extends AbstractService<Associado>{
 		return status.equals(StatusVotoEnum.ABLE_TO_VOTE.getStatus());
 	}
 }
+
+

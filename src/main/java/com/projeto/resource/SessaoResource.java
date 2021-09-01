@@ -56,4 +56,10 @@ public class SessaoResource {
 		return this.service.iniciarSessao(sessao);
 		
 	}
+
+	@GetMapping("finalizar/{id}")
+	public void encerrarSessao(@PathVariable Long id) {
+		 this.service.encerrarSessao(id);
+		
+	}
 }

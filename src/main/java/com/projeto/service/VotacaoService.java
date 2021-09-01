@@ -1,7 +1,5 @@
 package com.projeto.service;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,13 +32,17 @@ public class VotacaoService extends AbstractService<Votacao> {
 			throw new RuntimeException("Sessão não identificada.");
 		}
 
+		Sessao sessao = this.sessaoService.buscarPorId(voto.getIdSessao());
+		if (sessao == null) {
+			throw new RuntimeException("Sessão não identificada.");
+		}
+		
 		if(voto.getCpfAssociado() == null) {
 			throw new RuntimeException("Cpf do associado não identificado.");
 		}
 		
-		Date dataRef = new Date();
-		Sessao sessao = this.sessaoService.buscarPorId(voto.getIdSessao());
-		if(sessao.getDataFim().getTime() < dataRef.getTime()) {
+		Boolean sessaoEncerrada = this.sessaoService.verificarSessaoEncerrada(sessao);
+		if(sessaoEncerrada) {
 			throw new RuntimeException("Período de votação encerrado.");
 		}
 
@@ -51,4 +53,5 @@ public class VotacaoService extends AbstractService<Votacao> {
 		
 		this.salvar(voto);
 	}
+	
 }

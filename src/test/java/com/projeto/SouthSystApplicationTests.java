@@ -35,11 +35,11 @@ class SouthSystApplicationTests {
 
 	@Test
 	void contextLoads() {
-		this.criarAssociado("04729646150");
-		this.criarPauta();
+		//this.criarAssociado("04729646150");
+		//this.criarPauta();
 		
-		Sessao sessao = this.criarSessao();
-		this.votar(sessao.getId());
+		//Sessao sessao = this.criarSessao();
+		//this.votar(sessao.getId());
 	}
 	
 	Associado criarAssociado(String cpf) {

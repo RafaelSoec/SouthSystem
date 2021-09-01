@@ -40,7 +40,12 @@ public abstract class AbstractService<T extends AbstractEntity> {
 		if (entity.getId() == null) {
 			return this.repo.save(entity);
 		} else {
-			throw new ResponseException("Id já cadastrado.");
+			T entityRec = this.buscarPorId(entity.getId());
+			if (entityRec == null) {
+				throw new ResponseException("Id já cadastrado.");
+			} else {
+				return this.repo.save(entity);
+			}
 		}
 	}
 
@@ -53,7 +58,7 @@ public abstract class AbstractService<T extends AbstractEntity> {
 
 		entityRec = entity;
 		entityRec.setId(id);
-		return this.salvar(entityRec);
+		return this.repo.save(entityRec);
 	}
 
 	public void excluir(Long id) {

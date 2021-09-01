@@ -12,40 +12,48 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projeto.model.entities.Pauta;
-import com.projeto.service.PautaService;
+import com.projeto.model.dtos.ResultadoVotacaoDTO;
+import com.projeto.model.entities.Sessao;
+import com.projeto.service.SessaoService;
 
 @RestController
-@RequestMapping(value="pauta")
-public class PautaResource {
+@RequestMapping(value="sessao")
+public class SessaoResource {
 	
 	@Autowired
-	private PautaService service;
+	private SessaoService service;
 
 	@GetMapping
-	public List<Pauta> buscarTodos() {
+	public List<Sessao> buscarTodos() {
 		return this.service.buscarTodos();
 	}
 
 	@GetMapping("/{id}")
-	public Pauta buscarPorId(@PathVariable Long id) {
+	public Sessao buscarPorId(@PathVariable Long id) {
 		return this.service.buscarPorId(id);
 	}
-
-	@PostMapping
-	public Pauta salvar(@RequestBody Pauta pauta) {
-		return this.service.salvar(pauta);
-		
+	
+	@GetMapping("resultado/{id}")
+	public ResultadoVotacaoDTO recuperarResultado(@PathVariable Long id) {
+		return this.service.recuperarResultado(id);
 	}
 
+
 	@PutMapping("/{id}")
-	public Pauta atualizar(@PathVariable Long id, @RequestBody Pauta pauta) {
-		return this.service.atualizar(id, pauta);
+	public Sessao atualizar(@PathVariable Long id, @RequestBody Sessao sessao) {
+		return this.service.atualizar(id, sessao);
 		
 	}
 
 	@DeleteMapping("/{id}")
 	public void excluir(@PathVariable Long id) {
 		 this.service.excluir(id);
+	}
+	
+
+	@PostMapping
+	public Sessao iniciarSessao(@RequestBody Sessao sessao) {
+		return this.service.iniciarSessao(sessao);
+		
 	}
 }

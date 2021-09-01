@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pasta")
-public class Pasta implements Serializable {
+@Table(name = "pauta")
+public class Pauta implements Serializable {
 	
 	private static final long serialVersionUID = 3454734434633235618L;
 
@@ -23,11 +23,43 @@ public class Pasta implements Serializable {
 	private Long id;
 	
 
-	@Column(name = "descricao")
+	@Column(name = "descricao", nullable = false)
 	private String descricao;
 
 
-	@Column(name = "data")
+	@Column(name = "data", nullable = false)
 	private Date data;
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
+	public Date getData() {
+		return data;
+	}
+
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+	
+	
 	
 }

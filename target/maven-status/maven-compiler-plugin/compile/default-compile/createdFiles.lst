@@ -1,0 +1,6 @@
+com/projeto/model/entities/Pasta.class
+com/projeto/repository/PastaRepository.class
+com/projeto/SouthSystApplication.class
+com/projeto/resource/PautaResource.class
+com/projeto/service/PastaService.class
+com/projeto/model/dtos/PastaDTO.class

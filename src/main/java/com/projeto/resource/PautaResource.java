@@ -17,6 +17,7 @@ import com.projeto.model.entities.Pauta;
 import com.projeto.service.PautaService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 
 @RestController

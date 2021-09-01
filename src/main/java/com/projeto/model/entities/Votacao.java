@@ -13,7 +13,7 @@ import com.projeto.model.enums.VotoEnum;
 
 @Entity
 @Table(name = "votacao")
-public class Votacao implements Serializable {
+public class Votacao extends AbstractEntity implements Serializable {
 
 	private static final long serialVersionUID = 7336991692223313361L;
 

@@ -54,7 +54,7 @@ public class AssociadoService extends AbstractService<Associado>{
 			throw new ResponseException("CPF já cadastrado.");
 		}
 		
-		return this.repository.save(associado);
+		return super.salvar(associado);
 	}
 	
 	//retorna true se o cpf do associado for duplicado

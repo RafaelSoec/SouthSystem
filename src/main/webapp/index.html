@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Desafio Tecnico</title>
+<base href="/">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+	<!--The content below is only a placeholder and can be replaced.-->
+	<div style="text-align: center">
+		<h1>Desafio Técnico</h1>
+		<!-- <img width="300" alt="Angular Logo" src="/imgs/logoDesafio.jpeg"> -->
+	</div>
+
+	<div>
+		<h3>Links:</h3>
+		<ul>
+			<li><a target="_blank" rel="noopener"
+				href="https://www.linkedin.com/in/rafael-souza-9a315116a/">Linkedin</a>
+			</li>
+			<li><a target="_blank" rel="noopener"
+				href="https://projeto-tecnico-south-system.herokuapp.com/swagger-ui.html#/">Swagger</a>
+			</li>
+			<li><a target="_blank" rel="noopener"
+				href="https://github.com/RafaelSoec/SouthSystem">Git</a></li>
+		</ul>
+	</div>
+
+	<div>
+		<h3>Tecnologias utilizadas:</h3>
+		<ul>
+			<li>Java e SpringBoot</li>
+			<li>Mensageria - RabbitMQ Heroku</li>
+			<li>Servidor na nuvem PostgresSql - banco de dados</li>
+			<li>Swagger - Documentação de API</li>
+			<li>Git - Versionamento utilizando gitflow</li>
+			<li>JUNIT - Testes unitários</li>
+			<li>log4j - Logs Objetivo</li>
+		</ul>
+	</div>
+
+	<div>
+		<h3>Descrição:</h3>
+		<p>No cooperativismo, cada associado possui um voto e as decisões
+			são tomadas em assembleias, por votação. A partir disso, você precisa
+			criar uma solução back-end para gerenciar essas sessões de votação.</p>
+
+		<p>Essa solução deve ser executada na nuvem e promover as
+			seguintes funcionalidades através de uma API REST:</p>
+
+		<ul>
+			<li>Cadastrar uma nova pauta;</li>
+			<li>Abrir uma sessão de votação em uma pauta (a sessão de
+				votação deve ficar aberta por um tempo determinado na chamada de
+				abertura ou 1 minuto por default);</li>
+			<li>Receber votos dos associados em pautas (os votos são apenas
+				'Sim'/'Não'. Cada associado é identificado por um id único e pode
+				votar apenas uma vez por pauta);</li>
+			<li>Contabilizar os votos e dar o resultado da votação na pauta.
+				Para fins de exercício, a segurança das interfaces pode ser
+				abstraída e qualquer chamada para as interfaces pode ser considerada
+				como autorizada.</li>
+		</ul>
+		<p>
+			<b>Tarefa Bônus 1</b> - Integração com sistemas externos Integrar com
+			um sistema que verifique, a partir do CPF do associado, se ele pode
+			votar GET https://user-info.herokuapp.com/users/{cpf} Caso o CPF seja
+			inválido, a API retornará o HTTP Status 404 (Not found). Você pode
+			usar geradores de CPF para gerar CPFs válidos; Caso o CPF seja
+			válido, a API retornará se o usuário pode (ABLE_TO_VOTE) ou não pode
+			(UNABLE_TO_VOTE) executar a operação
+		</p>
+
+		<p>
+			<b>Tarefa Bônus 2</b> - Mensageria e filas Classificação da
+			informação: Uso Interno O resultado da votação precisa ser informado
+			para o restante da plataforma, isso deve ser feito preferencialmente
+			através de mensageria. Quando a sessão de votação fechar, poste uma
+			mensagem com o resultado da votação.
+		</p>
+
+		<p>
+			<b>Tarefa Bônus 3</b> - Performance Imagine que sua aplicação possa
+			ser usada em cenários que existam centenas de milhares de votos. Ela
+			deve se comportar de maneira performática nesses cenários; Testes de
+			performance são uma boa maneira de garantir e observar como sua
+			aplicação se comporta.
+		</p>
+
+		<p>
+			<b>Tarefa Bônus 4 </b> - Versionamento da API Como você versionaria a
+			API da sua aplicação? Que estratégia usar?
+		</p>
+	</div>
+
+</body>
+</html>

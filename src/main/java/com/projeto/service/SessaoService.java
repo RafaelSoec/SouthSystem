@@ -52,7 +52,7 @@ public class SessaoService extends AbstractService<Sessao> {
 			throw new ResponseException("Pauta não identificada.");
 		}
 
-		return this.salvar(sessao);
+		return super.salvar(sessao);
 	}
 
 	@RabbitListener(queues = RabbitMqConnection.FILA_RESULTADO_SESSAO)

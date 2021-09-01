@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "associado")
-public class Associado implements Serializable {
+public class Associado extends AbstractEntity implements Serializable {
 	
 	private static final long serialVersionUID = 3454734434633235618L;
 

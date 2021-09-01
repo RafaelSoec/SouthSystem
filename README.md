@@ -1,5 +1,16 @@
 # Desafio Técnico
 
+Tecnologias utilizadas:
+
+  * Java e SpringBoot
+  * Mensageria - RabbitMQ
+  * Heroku  - Servidor na nuvem
+  * PostgresSql - banco de dados
+  * Swagger - Documentação de API
+  * Git  - Versionamento utilizando gitflow
+  * JUNIT - Testes unitários
+  * log4j - Logs
+
 ## Objetivo
 No cooperativismo, cada associado possui um voto e as decisões são tomadas em assembleias, por votação. A partir disso, você precisa criar uma solução back-end para gerenciar essas sessões de votação. Essa solução deve ser executada na nuvem e promover as seguintes funcionalidades através de uma API REST:
 
@@ -30,23 +41,7 @@ Classificação da informação: Uso Interno O resultado da votação precisa se
 Imagine que sua aplicação possa ser usada em cenários que existam centenas de milhares de votos. Ela deve se comportar de maneira performática nesses cenários;
 
 Testes de performance são uma boa maneira de garantir e observar como sua aplicação se comporta.
-###Tarefa Bônus 4 - Versionamento da API
+
+### Tarefa Bônus 4 - Versionamento da API
 Como você versionaria a API da sua aplicação? Que estratégia usar?
 
-O que será analisado
-Simplicidade no design da solução (evitar over engineering)
-Organização do código
-Arquitetura do projeto
-Boas práticas de programação (manutenibilidade, legibilidade etc)
-Possíveis bugs
-Tratamento de erros e exceções
-Explicação breve do porquê das escolhas tomadas durante o desenvolvimento da solução
-Uso de testes automatizados e ferramentas de qualidade
-Limpeza do código
-Documentação do código e da API
-Logs da aplicação
-Mensagens e organização dos commits
-Observações importantes
-Não inicie o teste sem sanar todas as dúvidas
-Iremos executar a aplicação para testá-la, cuide com qualquer dependência externa e deixe claro caso haja instruções especiais para execução do mesmo
-Teste bem sua solução, evite bugs

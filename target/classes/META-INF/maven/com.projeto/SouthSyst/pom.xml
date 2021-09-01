@@ -13,10 +13,7 @@
 	<artifactId>SouthSyst</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SouthSyst</name>
-	<description>Projeto Tecnico South System</description>
-	<properties>
-		<java.version>11</java.version>
-	</properties>
+	<description>Projeto Tecnico </description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -58,6 +55,10 @@
 	        <plugin>
 	            <groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-compiler-plugin</artifactId>
+	            <configuration>
+	                <source>1.8</source>
+	                <target>1.8</target>
+				</configuration>
 	        </plugin>
 		</plugins>
 	</build>

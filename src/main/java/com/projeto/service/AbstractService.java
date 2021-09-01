@@ -20,7 +20,7 @@ public abstract class AbstractService<T>{
 		
 		Optional<T> entity = this.repo.findById(id);
 		
-		if(entity.isEmpty()) {
+		if(!entity.isPresent()) {
 			return null;
 		}
 		

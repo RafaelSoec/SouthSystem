@@ -1,5 +1,9 @@
 # Desafio Técnico
 
+Links:
+  * Servidor: https://projeto-tecnico-south-system.herokuapp.com/
+  * Swagger: https://projeto-tecnico-south-system.herokuapp.com/swagger-ui.html#/
+
 Tecnologias utilizadas:
 
   * Java e SpringBoot

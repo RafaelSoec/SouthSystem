@@ -3,6 +3,8 @@ com/projeto/service/PautaService.class
 com/projeto/connection/RabbitMqConnection.class
 com/projeto/repository/PautaRepository.class
 com/projeto/resource/AssociadoResource.class
+com/projeto/exception/ResponseException.class
+com/projeto/exception/ResponseExceptionHandler$ResponseApi.class
 com/projeto/resource/SessaoResource.class
 com/projeto/resource/PautaResource.class
 com/projeto/service/AbstractService.class
@@ -11,6 +13,7 @@ com/projeto/model/entities/Sessao.class
 com/projeto/model/enums/StatusVotoEnum.class
 com/projeto/model/entities/Votacao.class
 com/projeto/service/SessaoService.class
+com/projeto/exception/ResponseExceptionHandler.class
 com/projeto/model/entities/Associado.class
 com/projeto/model/dtos/PeriodoDTO.class
 com/projeto/repository/VotacaoRepository.class

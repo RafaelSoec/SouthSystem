@@ -2,18 +2,18 @@ package com.projeto.service;
 
 import java.util.Date;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projeto.connection.RabbitMqConnection;
+import com.projeto.exception.ResponseException;
 import com.projeto.model.dtos.ResultadoVotacaoDTO;
 import com.projeto.model.entities.Pauta;
 import com.projeto.model.entities.Sessao;
 import com.projeto.repository.SessaoRepository;
-
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
 
 @Service
 public class SessaoService extends AbstractService<Sessao> {
@@ -33,11 +33,11 @@ public class SessaoService extends AbstractService<Sessao> {
 
 	public Sessao iniciarSessao(Sessao sessao) {
 		if (sessao == null) {
-			throw new RuntimeException("Sessão não identificada.");
+			throw new ResponseException("Sessão não identificada.");
 		}
 
 		if(sessao.getDataInicio() == null) {
-			throw new RuntimeException("Data de início da sessão não identicada.");
+			throw new ResponseException("Data de início da sessão não identicada.");
 		}
 		
 		//definir como padrão - 1 minnuto a mais que a data de inicio
@@ -49,7 +49,7 @@ public class SessaoService extends AbstractService<Sessao> {
 
 		Pauta pauta = this.pautaService.buscarPorId(sessao.getIdPauta());
 		if (pauta == null) {
-			throw new RuntimeException("Pauta não identificada.");
+			throw new ResponseException("Pauta não identificada.");
 		}
 
 		return this.salvar(sessao);
@@ -72,12 +72,12 @@ public class SessaoService extends AbstractService<Sessao> {
 
 	public void encerrarSessao(Long idSessao) {
 		if(idSessao == null) {
-			throw new RuntimeException("Sessão não identificada.");
+			throw new ResponseException("Sessão não identificada.");
 		}
 		
 		Sessao sessao = this.buscarPorId(idSessao);
 		if (sessao == null) {
-			throw new RuntimeException("Sessão não identificada.");
+			throw new ResponseException("Sessão não identificada.");
 		}
 		
 		//caso a sessao esteja encerrada. Posta uma mensagem na fila
@@ -86,7 +86,7 @@ public class SessaoService extends AbstractService<Sessao> {
 			ResultadoVotacaoDTO result = this.recuperarResultado(idSessao);
 			this.mensageriaService.enviarMensagem(RabbitMqConnection.FILA_RESULTADO_SESSAO, result);
 		}else {
-			throw new RuntimeException("A Sessão ainda não pode ser encerrada.");
+			throw new ResponseException("A Sessão ainda não pode ser encerrada.");
 		}
 	}
 	

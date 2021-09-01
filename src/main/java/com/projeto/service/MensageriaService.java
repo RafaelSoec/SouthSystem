@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.projeto.connection.RabbitMqConnection;
+import com.projeto.exception.ResponseException;
 
 @Service
 public class MensageriaService {
@@ -23,7 +24,7 @@ public class MensageriaService {
 			String msg = this.mapper.writeValueAsString(mensagem);
 			rabbitTemp.convertAndSend(nomeFila, msg);
 		} catch (JsonProcessingException e) {
-			throw new RuntimeException("Falha ao enviar mensagem na fila.");
+			throw new ResponseException("Falha ao enviar mensagem na fila.");
 		}
 	}
 	

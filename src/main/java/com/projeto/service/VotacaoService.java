@@ -3,6 +3,7 @@ package com.projeto.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.projeto.exception.ResponseException;
 import com.projeto.model.entities.Sessao;
 import com.projeto.model.entities.Votacao;
 import com.projeto.model.enums.VotoEnum;
@@ -17,6 +18,8 @@ public class VotacaoService extends AbstractService<Votacao> {
 	@Autowired
 	private SessaoService sessaoService;
 
+	@Autowired
+	private AssociadoService associadoService;
 
 	public Votacao buscarPorAssociado(String cpf) {
 		return this.repository.buscarPorAssociado(cpf);
@@ -24,34 +27,39 @@ public class VotacaoService extends AbstractService<Votacao> {
 
 
 	public void votar(Votacao voto) {
-		if (voto == null || voto.getVoto() == VotoEnum.BRANCO) {
-			throw new RuntimeException("Voto não identificado.");
-		}
-
-		if (voto.getIdSessao() == null) {
-			throw new RuntimeException("Sessão não identificada.");
-		}
-
-		Sessao sessao = this.sessaoService.buscarPorId(voto.getIdSessao());
-		if (sessao == null) {
-			throw new RuntimeException("Sessão não identificada.");
-		}
-		
 		if(voto.getCpfAssociado() == null) {
-			throw new RuntimeException("Cpf do associado não identificado.");
+			throw new ResponseException("Cpf do associado não identificado.");
 		}
 		
-		Boolean sessaoEncerrada = this.sessaoService.verificarSessaoEncerrada(sessao);
-		if(sessaoEncerrada) {
-			throw new RuntimeException("Período de votação encerrado.");
-		}
+		boolean podeVotar = this.associadoService.verificarSeAssociadoPodeVotar(voto.getCpfAssociado());
+		if(podeVotar) {
+			if (voto == null || voto.getVoto() == VotoEnum.BRANCO) {
+				throw new ResponseException("Voto não identificado.");
+			}
 
-		Votacao votacaoAnt = this.repository.buscarPorAssociado(voto.getCpfAssociado());
-		if(votacaoAnt != null) {
-			throw new RuntimeException("O associado só pode votar uma vez por pauta.");
+			if (voto.getIdSessao() == null) {
+				throw new ResponseException("Sessão não identificada.");
+			}
+
+			Sessao sessao = this.sessaoService.buscarPorId(voto.getIdSessao());
+			if (sessao == null) {
+				throw new ResponseException("Sessão não identificada.");
+			}
+			
+			Boolean sessaoEncerrada = this.sessaoService.verificarSessaoEncerrada(sessao);
+			if(sessaoEncerrada) {
+				throw new ResponseException("Período de votação encerrado.");
+			}
+
+			Votacao votacaoAnt = this.repository.buscarPorAssociado(voto.getCpfAssociado());
+			if(votacaoAnt != null) {
+				throw new ResponseException("O associado só pode votar uma vez por pauta.");
+			}
+			
+			this.salvar(voto);
+		}else {
+			throw new ResponseException("Associado não habilitado a votar.");
 		}
-		
-		this.salvar(voto);
 	}
 	
 }
